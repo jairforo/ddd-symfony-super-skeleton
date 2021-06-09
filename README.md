@@ -1,5 +1,6 @@
 # PHP SOLID SUPER SKELETON
-The idea of this repository is give a quick skeleton for a modern PHP application using Symfony and DDD.
+The idea of this repository is give a quick skeleton for a modern PHP application using Symfony and DDD, 
+Hexagonal Architecture, CQRS and event sourcing.
 
 ## How to build the application
 ```
