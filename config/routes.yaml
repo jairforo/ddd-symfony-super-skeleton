@@ -1,0 +1,7 @@
+#health:
+#    path: /api/v1/health
+#    controller: App\Controller\HealthController::index
+
+#advertisers.all:
+#  path: /api/v1/advertisers
+#  controller: App\Controller\AdvertiserController::index

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: superskeleton
+    volumes:
+      - ./:/var/www/super-skeleton
+    ports:
+      - 8030:8080
+    depends_on:
+      - mysql
+      - rabbitmq
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123
+      MYSQL_DATABASE: superskeleton
+      MYSQL_USERR: superskeleton
+      MYSQL_PASSWORD: superskeleton
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+volumes:
+  db_data: {}
